@@ -25,20 +25,30 @@ var data ={
       ]
   };
 
-var ecgData = null;
-
 class ECG extends Component {
+
+  // componentDidMount() {
+  //   setInterval(() => this.forceUpdate(), 1000);
+  // }
 
   render() {
     base.fetch('0000ffe1-0000-1000-8000-00805f9b34fb', {
       context: this,
       asArray: true,
       then(returnedData){
-        ecgData = returnedData;
-        console.log("ECG dtata is: ", ecgData);
-        data.values.push({x: 34, y: 440});
-        console.log("dtata is: ", data.values);
-
+        var ecgData = {};
+        ecgData.y = 0;
+        // console.log("ECG dtata is: ", returnedData);
+        for (const array of returnedData) {
+          console.log(array);
+          for (let reading of array) {
+            console.log(reading);
+            ecgData.x = reading;
+            ecgData.y++;
+            data.values.push(ecgData);
+          }
+        }
+        console.log("data is: ", data.values);
       }
     });
 
