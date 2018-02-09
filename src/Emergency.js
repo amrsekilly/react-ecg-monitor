@@ -43,9 +43,9 @@ class Emergency extends Component {
           </Navbar>  
           <h1 className="emer">Emergencies:</h1>
           <div className="EmergencyCard">
-             <Image src="Patient1.jpeg" responsive/>
-              Patient's name<br/>
-              String of Condition<br/>
+          <Image src="https://csolsqs.com/male/image_20170930_225302_862.jpg" style={{width:"100px", marginBottom:"10px"}} responsive/>
+              <h3>Ahmed Alaa</h3><br/>
+          <h3>Condition</h3><h4 style={{ color: "red" }}>Showing cardiac arrest symptoms</h4><br/>
               Location Emergency Time
           </div>
       </div>

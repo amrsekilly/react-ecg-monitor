@@ -46,7 +46,7 @@ class ECG extends Component {
 
     return (
       <div className="App">
-       <h2 style={{marginTop:"100px"}}>Some Readings example</h2>
+       <h2 style={{marginTop:"100px"}}>ECG</h2>
         <LineChart
           data={data}
           width={600}
