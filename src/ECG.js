@@ -18,41 +18,36 @@ var LineChart = ReactD3.LineChart;
 
 var data ={
     values: [
-      { x: 0, y: 2 }, 
-      { x: 1.3, y: 5 },
-      { x: 3, y: 6 }, 
-      { x: 3.5, y: 6.5 }
+      { x: 0, y: 0 }
       ]
   };
 
 class ECG extends Component {
 
-  // componentDidMount() {
-  //   setInterval(() => this.forceUpdate(), 1000);
-  // }
-
-  render() {
+  componentDidMount() {
+    setInterval(() => this.forceUpdate(), 1000);
     base.fetch('0000ffe1-0000-1000-8000-00805f9b34fb', {
       context: this,
       asArray: true,
-      then(returnedData){
+      then(returnedData) {
         var ecgData = {};
-        ecgData.y = 0;
+        ecgData.x = 0;
         // console.log("ECG dtata is: ", returnedData);
         for (const array of returnedData) {
           console.log(array);
           for (let reading of array) {
             console.log(reading);
-            ecgData.x = reading;
-            ecgData.y++;
+            ecgData.y = reading;
+            ecgData.x++;
             data.values.push(ecgData);
           }
         }
         console.log("data is: ", data.values);
       }
     });
+  }
 
-    
+  render() {
 
     return (
       <div className="App">
