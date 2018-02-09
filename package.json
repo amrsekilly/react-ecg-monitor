@@ -3,16 +3,26 @@
   "version": "0.1.0",
   "private": true,
   "dependencies": {
+    "bootstrap": "^4.0.0",
+    "bootstrap-css": "^4.0.0-alpha.5",
+    "re-base": "^3.2.2",
     "react": "^16.2.0",
+    "react-bootstrap": "^0.32.1",
     "react-d3": "^0.4.0",
     "react-d3-components": "^0.8.0",
     "react-dom": "^16.2.0",
-    "react-scripts": "1.1.0"
+    "react-scripts": "1.1.0",
+    "reactstrap": "^5.0.0-beta"
   },
   "scripts": {
     "start": "react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test --env=jsdom",
     "eject": "react-scripts eject"
+  },
+  "devDependencies": {
+    "bootstrap": "^4.0.0",
+    "bootstrap-css": "^4.0.0-alpha.5",
+    "react-bootstrap": "^0.32.1"
   }
 }
