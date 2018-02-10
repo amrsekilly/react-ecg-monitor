@@ -26,6 +26,8 @@ class ECG extends Component {
 
   componentDidMount() {
     setInterval(() => this.forceUpdate(), 1000);
+
+    // get initial data 
     base.fetch('0000ffe1-0000-1000-8000-00805f9b34fb', {
       context: this,
       asArray: true,
@@ -34,17 +36,40 @@ class ECG extends Component {
         ecgData.x = 0;
         // console.log("ECG dtata is: ", returnedData);
         for (const array of returnedData) {
-          console.log(array);
+          // console.log(array);
           for (let reading of array) {
-            console.log(reading);
+            // console.log(reading);
+            ecgData.y = reading;
+            ecgData.x++;
+            data.values.push(ecgData);
+            // console.log("Initial data is: ", data.values);
+          }
+        }
+        
+      }
+    });
+
+    // get updated data
+    base.listenTo('0000ffe1-0000-1000-8000-00805f9b34fb', {
+      context: this,
+      asArray: true,
+      then(returnedData) {
+        var ecgData = {};
+        ecgData.x = 0;
+        // console.log("ECG dtata is: ", returnedData);
+        for (const array of returnedData) {
+          // console.log(array);
+          for (let reading of array) {
+            // console.log(reading);
             ecgData.y = reading;
             ecgData.x++;
             data.values.push(ecgData);
           }
         }
-        console.log("data is: ", data.values);
+        // console.log("Updated data is: ", data.values);
       }
     });
+
   }
 
   render() {
